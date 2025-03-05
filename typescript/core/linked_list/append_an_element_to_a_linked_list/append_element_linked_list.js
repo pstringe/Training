@@ -10,25 +10,24 @@ var head = new LinkedListNode(1, new LinkedListNode(2, new LinkedListNode(3, new
 /*
 ** Iterative
 ** start 00:00 end 4:02
-
-const append_linked_list_node = (head: LinkedListNode | null, node: LinkedListNode|null) => {
-    if (!head || !node){
+*/
+var append_linked_list_node_itterative = function (head, node) {
+    if (!head || !node) {
         return head;
     }
-    let cur = head;
-    while (cur.next){
+    var cur = head;
+    while (cur.next) {
         cur = cur.next;
     }
     cur.next = null;
     return head;
 };
-*/
 // Recursive solution
-var append_linked_list_node = function (head, node) {
+var append_linked_list_node_recursive = function (head, node) {
     if (!head.next) {
         return head.next = node;
     }
-    append_linked_list_node(head.next, node);
+    append_linked_list_node_recursive(head.next, node);
     return head;
 };
 var logLinkedList = function (head) {
@@ -38,7 +37,8 @@ var logLinkedList = function (head) {
         cur = cur.next;
     }
 };
-logLinkedList(append_linked_list_node(head, new LinkedListNode(5)));
+logLinkedList(append_linked_list_node_itterative(head, new LinkedListNode(5)));
+logLinkedList(append_linked_list_node_recursive(head, new LinkedListNode(5)));
 /*
 ** End 4:02
 */ 

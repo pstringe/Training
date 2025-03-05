@@ -37,14 +37,13 @@ const append_linked_list_node_itterative = (head: LinkedListNode | null, node: L
     cur.next = null;
     return head;
 };
-*/
 
 // Recursive solution
 const append_linked_list_node_recursive = (head: LinkedListNode, node: LinkedListNode | null) => {
     if (!head.next){
         return head.next = node;
     }
-    append_linked_list_node(head.next, node);
+    append_linked_list_node_recursive(head.next, node);
     return head;
 }
 
